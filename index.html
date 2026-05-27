@@ -19,9 +19,35 @@
 
   /* Layout */
   html{box-sizing:border-box}
+  *{box-sizing:border-box}
+
+  /* Desktop layout */
   .layout{display:flex;align-items:flex-start;min-height:100vh}
   .sidebar{width:240px;min-width:240px;flex-shrink:0;background:var(--bg2);border-right:.5px solid var(--border);padding:28px 0;position:sticky;top:0;height:100vh;overflow-y:auto}
   .main{flex:1;padding:44px 48px;min-width:0;overflow-x:hidden}
+
+  /* Hamburger button — hidden on desktop */
+  .hamburger{display:none;position:fixed;top:12px;right:12px;z-index:1000;background:var(--bg2);border:.5px solid var(--border2);border-radius:8px;width:40px;height:40px;align-items:center;justify-content:center;cursor:pointer;flex-direction:column;gap:5px;padding:10px}
+  .hamburger span{display:block;width:20px;height:1.5px;background:var(--text2);border-radius:2px;transition:all .2s}
+  .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+
+  /* Mobile overlay nav */
+  .mobile-nav-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.6);backdrop-filter:blur(2px)}
+  .mobile-nav-drawer{position:fixed;top:0;right:0;height:100%;width:80%;max-width:300px;background:var(--bg2);border-left:.5px solid var(--border2);z-index:1000;overflow-y:auto;padding:20px 0 40px;transform:translateX(100%);transition:transform .25s ease}
+  .mobile-nav-overlay.open{display:block}
+  .mobile-nav-overlay.open .mobile-nav-drawer{transform:translateX(0)}
+  .mobile-nav-close{display:flex;justify-content:flex-end;padding:0 16px 16px;cursor:pointer;font-size:11px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase}
+
+  /* Mobile breakpoint */
+  @media(max-width:680px){
+    .layout{display:block}
+    .sidebar{display:none}
+    .main{padding:20px 18px 60px}
+    .hamburger{display:flex}
+    .ph-title{font-size:24px}
+  }
 
   /* Sidebar */
   .sb-header{padding:0 20px 20px;border-bottom:.5px solid var(--border);margin-bottom:16px}
@@ -185,6 +211,49 @@
 </style>
 </head>
 <body>
+
+<button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Open navigation">
+  <span></span><span></span><span></span>
+</button>
+
+<div class="mobile-nav-overlay" id="mobileNavOverlay" onclick="closeMobileNav()">
+  <div class="mobile-nav-drawer" onclick="event.stopPropagation()">
+    <div class="mobile-nav-close" onclick="closeMobileNav()">✕ close</div>
+    <div class="sb-header" style="padding:0 20px 20px">
+      <div class="sb-eyebrow">HM Interview Prep</div>
+      <div class="sb-title">Victoria<br><em>1:1 Guide</em></div>
+    </div>
+    <div class="sb-section">
+      <div class="sb-section-label">Start here</div>
+      <button class="sb-item" onclick="showMobile('victoria', this)"><span class="sb-dot"></span>Know your interviewer<span class="sb-badge b-prep">Key</span></button>
+      <button class="sb-item" onclick="showMobile('strategy', this)"><span class="sb-dot"></span>Interview strategy</button>
+    </div>
+    <div class="sb-section" style="margin-top:8px">
+      <div class="sb-section-label">Her three topics</div>
+      <button class="sb-item" onclick="showMobile('agentic', this)"><span class="sb-dot"></span>Agentic experiences<span class="sb-badge b-core">Core</span></button>
+      <button class="sb-item" onclick="showMobile('xfn', this)"><span class="sb-dot"></span>Cross-functional collab<span class="sb-badge b-core">Core</span></button>
+      <button class="sb-item" onclick="showMobile('domain', this)"><span class="sb-dot"></span>Domain expertise<span class="sb-badge b-core">Core</span></button>
+    </div>
+    <div class="sb-section" style="margin-top:8px">
+      <div class="sb-section-label">Other likely questions</div>
+      <button class="sb-item" onclick="showMobile('behavioral', this)"><span class="sb-dot"></span>Behavioral question bank<span class="sb-badge b-core">New</span></button>
+      <button class="sb-item" onclick="showMobile('bets', this)"><span class="sb-dot"></span>Big bets + bureaucracy<span class="sb-badge b-prod">Prod</span></button>
+      <button class="sb-item" onclick="showMobile('ecosystem', this)"><span class="sb-dot"></span>Ecosystem + API thinking<span class="sb-badge b-prod">Prod</span></button>
+      <button class="sb-item" onclick="showMobile('ai', this)"><span class="sb-dot"></span>AI product questions<span class="sb-badge b-prod">Prod</span></button>
+      <button class="sb-item" onclick="showMobile('light-case', this)"><span class="sb-dot"></span>Light product cases<span class="sb-badge b-prod">Prod</span></button>
+    </div>
+    <div class="sb-section" style="margin-top:8px">
+      <div class="sb-section-label">Reference</div>
+      <button class="sb-item" onclick="showMobile('recruiter-notes', this)"><span class="sb-dot"></span>Recruiter's full notes<span class="sb-badge b-prep">Key</span></button>
+      <button class="sb-item" onclick="showMobile('concepts', this)"><span class="sb-dot"></span>Concepts to know<span class="sb-badge b-prep">Study</span></button>
+      <button class="sb-item" onclick="showMobile('market', this)"><span class="sb-dot"></span>Strategy + market landscape</button>
+      <button class="sb-item" onclick="showMobile('acronyms', this)"><span class="sb-dot"></span>Acronyms + glossary</button>
+      <button class="sb-item" onclick="showMobile('gaps', this)"><span class="sb-dot"></span>Research gaps + fixes<span class="sb-badge b-gap">Gaps</span></button>
+      <button class="sb-item" onclick="showMobile('ask', this)"><span class="sb-dot"></span>Questions to ask her</button>
+    </div>
+  </div>
+</div>
+
 <div class="layout">
 
 <!-- Sidebar -->
@@ -2140,6 +2209,21 @@ function show(id, el){
   var target = document.getElementById('page-'+id);
   if(target) target.classList.add('active');
   if(el) el.classList.add('active');
+}
+function toggleMobileNav(){
+  var overlay = document.getElementById('mobileNavOverlay');
+  var btn = document.getElementById('hamburger');
+  overlay.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+function closeMobileNav(){
+  document.getElementById('mobileNavOverlay').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+function showMobile(id, el){
+  show(id, el);
+  closeMobileNav();
+  window.scrollTo(0,0);
 }
 function toggleQ(el){el.classList.toggle('open')}
 </script>
