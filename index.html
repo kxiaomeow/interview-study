@@ -221,7 +221,7 @@
     <div class="mobile-nav-close" onclick="closeMobileNav()">✕ close</div>
     <div class="sb-header" style="padding:0 20px 20px">
       <div class="sb-eyebrow">HM Interview Prep</div>
-      <div class="sb-title">Victoria<br><em>1:1 Guide</em></div>
+      <div class="sb-title">Interview with Victoria: <em>Guide</em></div>
     </div>
     <div class="sb-section">
       <div class="sb-section-label">Start here</div>
@@ -237,6 +237,7 @@
     <div class="sb-section" style="margin-top:8px">
       <div class="sb-section-label">Other likely questions</div>
       <button class="sb-item" onclick="showMobile('behavioral', this)"><span class="sb-dot"></span>Behavioral question bank<span class="sb-badge b-core">New</span></button>
+      <button class="sb-item" onclick="showMobile('storybank', this)"><span class="sb-dot"></span>Story bank — all 10<span class="sb-badge b-prep">Key</span></button>
       <button class="sb-item" onclick="showMobile('bets', this)"><span class="sb-dot"></span>Big bets + bureaucracy<span class="sb-badge b-prod">Prod</span></button>
       <button class="sb-item" onclick="showMobile('ecosystem', this)"><span class="sb-dot"></span>Ecosystem + API thinking<span class="sb-badge b-prod">Prod</span></button>
       <button class="sb-item" onclick="showMobile('ai', this)"><span class="sb-dot"></span>AI product questions<span class="sb-badge b-prod">Prod</span></button>
@@ -260,7 +261,7 @@
 <nav class="sidebar">
   <div class="sb-header">
     <div class="sb-eyebrow">HM Interview Prep</div>
-    <div class="sb-title">Victoria<br><em>1:1 Guide</em></div>
+    <div class="sb-title">Interview with Victoria: <em>Guide</em></div>
   </div>
 
   <div class="sb-section">
@@ -279,6 +280,7 @@
   <div class="sb-section" style="margin-top:8px">
     <div class="sb-section-label">Other likely questions</div>
     <button class="sb-item" onclick="show('behavioral', this)"><span class="sb-dot"></span>Behavioral question bank<span class="sb-badge b-core">New</span></button>
+    <button class="sb-item" onclick="show('storybank', this)"><span class="sb-dot"></span>Story bank — all 10<span class="sb-badge b-prep">Key</span></button>
     <button class="sb-item" onclick="show('bets', this)"><span class="sb-dot"></span>Big bets + bureaucracy<span class="sb-badge b-prod">Prod</span></button>
     <button class="sb-item" onclick="show('ecosystem', this)"><span class="sb-dot"></span>Ecosystem + API thinking<span class="sb-badge b-prod">Prod</span></button>
     <button class="sb-item" onclick="show('ai', this)"><span class="sb-dot"></span>AI product questions<span class="sb-badge b-prod">Prod</span></button>
@@ -756,6 +758,404 @@
       </div>
     </div>
   </div>
+</div>
+
+<!-- STORY BANK PAGE -->
+<div class="page" id="page-storybank">
+  <div class="ph">
+    <div class="ph-eyebrow">Story bank · All 10 stories</div>
+    <div class="ph-title">Your stories —<br><em>full + 90-second versions</em></div>
+    <div class="ph-sub">Every story built out with full detail and a practiced 90-second version. The matrix shows which questions each story covers. Practice the starred ones out loud until they're completely natural.</div>
+    <div class="ph-tags">
+      <span class="ph-tag">10 stories</span>
+      <span class="ph-tag">12 categories covered</span>
+      <span class="ph-tag">0 hard gaps</span>
+    </div>
+  </div>
+
+  <!-- MATRIX -->
+  <div class="slabel">Story → question mapping matrix</div>
+  <div style="overflow-x:auto;margin-bottom:24px">
+  <table style="width:100%;border-collapse:collapse;font-size:10px">
+    <thead>
+      <tr>
+        <th style="padding:6px 5px;text-align:left;font-size:9px;color:var(--text3);border-bottom:.5px solid var(--border2);min-width:120px">Question</th>
+        <th style="padding:6px 4px;text-align:center;font-size:8px;color:var(--text3);border-bottom:.5px solid var(--border2);width:44px;line-height:1.3">Webpage<br>rescue</th>
+        <th style="padding:6px 4px;text-align:center;font-size:8px;color:var(--text3);border-bottom:.5px solid var(--border2);width:44px;line-height:1.3">Optional<br>login</th>
+        <th style="padding:6px 4px;text-align:center;font-size:8px;color:var(--text3);border-bottom:.5px solid var(--border2);width:44px;line-height:1.3">K12<br>filtering</th>
+        <th style="padding:6px 4px;text-align:center;font-size:8px;color:var(--text3);border-bottom:.5px solid var(--border2);width:44px;line-height:1.3">Add-ons<br>default on</th>
+        <th style="padding:6px 4px;text-align:center;font-size:8px;color:var(--text3);border-bottom:.5px solid var(--border2);width:44px;line-height:1.3">WP<br>templates</th>
+        <th style="padding:6px 4px;text-align:center;font-size:8px;color:var(--text3);border-bottom:.5px solid var(--border2);width:44px;line-height:1.3">PDF<br>export</th>
+        <th style="padding:6px 4px;text-align:center;font-size:8px;color:var(--text3);border-bottom:.5px solid var(--border2);width:44px;line-height:1.3">Hz doc<br>model</th>
+        <th style="padding:6px 4px;text-align:center;font-size:8px;color:var(--text3);border-bottom:.5px solid var(--border2);width:44px;line-height:1.3">Project X<br>bridge</th>
+        <th style="padding:6px 4px;text-align:center;font-size:8px;color:var(--text3);border-bottom:.5px solid var(--border2);width:44px;line-height:1.3">Failure<br>story</th>
+        <th style="padding:6px 4px;text-align:center;font-size:8px;color:var(--text3);border-bottom:.5px solid var(--border2);width:44px;line-height:1.3">Agentic<br>Home/WP</th>
+      </tr>
+    </thead>
+    <tbody id="matrix-body"></tbody>
+  </table>
+  <div style="display:flex;gap:12px;margin-top:8px;font-size:10px;color:var(--text3);flex-wrap:wrap">
+    <span style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#0F6E56"></span>Anchor</span>
+    <span style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#185FA5"></span>Secondary</span>
+    <span style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#854F0B"></span>Partial</span>
+    <span style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--bg3);border:.5px solid var(--border2)"></span>Gap</span>
+  </div>
+  </div>
+
+  <!-- STORIES -->
+  <div class="slabel" style="margin-top:8px">★ Priority stories — practice these first</div>
+
+  <!-- S1: OPTIONAL LOGIN -->
+  <div class="qblock" onclick="toggleQ(this)">
+    <div class="qblock-header">
+      <span class="qblock-num" style="color:var(--accent)">★ S1</span>
+      <span class="qblock-q">Optional login / Magic School — Influence without authority + Technical depth</span>
+      <span class="qblock-type t-core">B2 · B11</span>
+      <span class="qblock-chev">▼</span>
+    </div>
+    <div class="qblock-body">
+      <div class="asection">
+        <div class="as-label">Full version</div>
+        <div class="as-body">
+          <strong>Situation:</strong> "When I took over the partnerships PM role, I inherited a live embed SDK integration with Magic School — one of our largest K12 edtech partners — that had a fundamental access problem. Educators and students were hitting login friction constantly: some institutions hadn't deployed Adobe Express, others accidentally landed in consumer accounts with paywalls. The partner needed optional login — a seamless guest flow requiring no Adobe account. I had a July deadline to make back-to-school. And I discovered the previous PM had never raised any of this with legal or Firefly."<br><br>
+          <strong>Three blockers — different argument for each:</strong> "Express SVP was concerned about COGS — uncapped logged-out generations could get expensive. I worked with our partnerships lead to model usage against MAU, built in throttling and usage thresholds, and committed to a re-evaluation trigger. For legal: I proposed a 'continue as guest' flow where users explicitly accepted terms — that gave them the consent layer. For the Firefly VP: he had two concerns — model safety for K12 and abuse risk. I addressed both directly — our partner's platform enforces 13+, users had to be logged into Magic School, terms acceptance was the abuse mitigation layer. I got the Education VP and Express Embed VP aligned, then facilitated a conversation where they made the case together — and both VPs formally assumed the risk."<br><br>
+          <strong>Engineering pivot:</strong> "I identified that depending on the embed engineering team would kill the timeline. I made the call to sub in education engineering to accelerate the build."<br><br>
+          <strong>When it almost died:</strong> "Right at the start — the previous PM had never raised any of this with anyone. I took aggressive control of all three approval tracks simultaneously and documented every decision in DACIs as we went."<br><br>
+          <strong>Outcome:</strong> "Shipped before back-to-school. Live today. The framework — consent flow, usage thresholds, DACI governance, internal admin console for AI credits — became the template for future partner integrations."<br><br>
+          <strong>Victoria bridge:</strong> "At its core this was an authorization architecture problem — defining how a non-Adobe user accesses Adobe AI capabilities through a third-party platform with the right consent model, cost controls, and governance. That's structurally identical to how Frame.io thinks about the C2C Devices API."
+        </div>
+      </div>
+      <div class="asection">
+        <div class="as-label">90-second version — practice verbatim</div>
+        <div class="answer">
+          <p>"I inherited a broken user experience for our biggest K12 edtech partner — educators and students couldn't access our image generator without hitting Adobe login friction. The partner needed optional login. Sounded simple. I had a July deadline and discovered the previous PM had never raised it with legal or Firefly.</p>
+          <p>Three stakeholders could veto it. For the Express SVP: usage modeling and throttling thresholds addressed the cost concern. For legal: a terms acceptance flow gave them the consent layer. For the Firefly VP: he had two concerns — model safety for K12 and abuse risk. I addressed both directly, then brought in the Education VP and Express Embed VP, facilitated a conversation where they made the case together — and both VPs formally assumed the risk.</p>
+          <p>I also identified that our embed team dependency would kill the timeline and made the call to sub in education engineering instead.</p>
+          <p>I took control of all three approval tracks simultaneously, documented every decision in DACIs, and we shipped before back-to-school. Live today. The framework became the template for future partner integrations. At its core it was an authorization architecture problem — structurally identical to how Frame.io's C2C Devices API authorizes hardware to act on a user's behalf."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S2: WEBPAGE RESCUE -->
+  <div class="qblock" onclick="toggleQ(this)">
+    <div class="qblock-header">
+      <span class="qblock-num" style="color:var(--accent)">★ S2</span>
+      <span class="qblock-q">Webpage rescue — Big bets + Prioritization + Learning domain fast</span>
+      <span class="qblock-type t-core">B1 · B6 · B9 · B10 · B12</span>
+      <span class="qblock-chev">▼</span>
+    </div>
+    <div class="qblock-body">
+      <div class="asection">
+        <div class="as-label">Full version</div>
+        <div class="as-body">
+          <strong>Situation:</strong> "I joined the education PM team as a backfill with no onboarding — new to PM, new to education, straight into Project X where Webpage was on the EOL list. Four engineers, no formal mandate, no budget."<br><br>
+          <strong>First bet:</strong> "I got a minimal yes to keep it alive — link it from the new product, keep it as is. But I quickly realized that was just delaying the same conversation by 18 months. Legacy services were all being EOL'd. So after already getting agreement to keep it, I made the case to actually replatform it ourselves on Project X's timeline. We kept not getting explicit nos and everyone else was too busy to stop us."<br><br>
+          <strong>Hardest moment:</strong> "Our publishing dependency announced they were moving us off. Publishing is the entire point of Webpage. With four engineers and a hard deadline, we made the call to build our own publishing service."<br><br>
+          <strong>Prioritization:</strong> "To make the deadline I cut real features — theme editor, mobile versions, page view tracking. But shipping imperfect wasn't a compromise — it was the only option. If we weren't ready when Express shipped, we simply wouldn't have been included. Ship now or don't exist."<br><br>
+          <strong>Outcome:</strong> "Shipped August 2023. 80k MAU who loved the product. Team grew from 4 to 7 engineers as we proved value. 100%+ creator MAU growth, 10x total MAU. Earlier this year became a top Express use case driven by the generative Webpage story."
+        </div>
+      </div>
+      <div class="asection">
+        <div class="as-label">90-second version — practice verbatim</div>
+        <div class="answer">
+          <p>"I joined the education PM team as a backfill with no onboarding — new to PM, new to education, straight into a replatforming project where the product I'd inherited was on the EOL list. Four engineers, no formal mandate.</p>
+          <p>I got a minimal yes to keep it alive. But I quickly realized that was just delaying the same conversation by 18 months — legacy services were all getting EOL'd anyway. So after already getting agreement to keep it, I made the case to replatform it ourselves on Project X's timeline. We kept not getting explicit nos and everyone else was too busy to stop us.</p>
+          <p>The hardest moment: our publishing dependency announced they were moving us off. Publishing is the entire point of the product. With four engineers, we made the call to build our own service.</p>
+          <p>To make the deadline I cut real features — theme editor, mobile versions, page tracking. But shipping imperfect wasn't a compromise — it was the only option. If we weren't ready when Express shipped, we simply wouldn't have been included. Ship now or don't exist.</p>
+          <p>We shipped. 80k MAU who loved the product. Team grew from 4 to 7 engineers as we proved value. 100%+ creator MAU growth, 10x total MAU. Earlier this year it became a top Express use case. A product on the chopping block twice."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S3: K12 FILTERING -->
+  <div class="qblock" onclick="toggleQ(this)">
+    <div class="qblock-header">
+      <span class="qblock-num" style="color:var(--accent)">★ S3</span>
+      <span class="qblock-q">K12 content filtering — Agentic / AI product</span>
+      <span class="qblock-type t-core">B3 · B11</span>
+      <span class="qblock-chev">▼</span>
+    </div>
+    <div class="qblock-body">
+      <div class="asection">
+        <div class="as-label">Full version</div>
+        <div class="as-body">
+          <strong>Situation:</strong> "I partnered with our education compliance PM on building a content filtering system on top of Firefly Image Model 4 to make it K12-safe. Two layers: input filtering on prompts and output filtering on images before they're shown. The design challenge was making input filtering contextual — 'war' should work in a history lesson but not in a violent context. Currently skews too restrictive for educators — that's the ongoing calibration problem."<br><br>
+          <strong>The incident:</strong> "Magic School flagged that students were getting inappropriate images through the embed SDK on a Thursday. We had until Tuesday — they'd turned the image generator off. The filter existed in production but hadn't been applied to the SDK for logged-out users — the specific path Magic School students were using. We scoped the fix, confirmed it wouldn't break the guest flow, and shipped it."<br><br>
+          <strong>Outcome:</strong> "Magic School turned the feature back on for students the following week. What I learned: AI safety infrastructure needs to be platform-wide from the start. The gap existed because the filter was built for one access path and not uniformly applied. That's now a launch requirement."
+        </div>
+      </div>
+      <div class="asection">
+        <div class="as-label">90-second version — practice verbatim</div>
+        <div class="answer">
+          <p>"I partnered with our compliance PM to build a content filtering system on top of Firefly's image model to make it K12-safe — input filtering on prompts and output filtering on images before they're shown. The product design challenge was making input filtering contextual rather than keyword-based. 'War' should be blocked in one context and fine in another — a history lesson about WWII is legitimate. We're still calibrating; currently skews too restrictive for educators.</p>
+          <p>The more acute version: Magic School flagged that students were getting inappropriate images on a Thursday. We had until Tuesday. The filter existed in production but hadn't been applied to the embed SDK for logged-out users — the specific path Magic School students were using. We scoped the fix, confirmed it wouldn't break the guest flow, and shipped it. Magic School turned the feature back on the following week.</p>
+          <p>What I took from it: AI safety infrastructure needs to be platform-wide from the start, not applied surface by surface as problems emerge. The gap existed because the filter was built for one access path. That's now a launch requirement."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S4: PDF EXPORT -->
+  <div class="qblock" onclick="toggleQ(this)">
+    <div class="qblock-header">
+      <span class="qblock-num" style="color:var(--accent)">★ S4</span>
+      <span class="qblock-q">PDF export — Eng/design partnership</span>
+      <span class="qblock-type t-core">B5 · B11</span>
+      <span class="qblock-chev">▼</span>
+    </div>
+    <div class="qblock-body">
+      <div class="asection">
+        <div class="as-label">Full version</div>
+        <div class="as-body">
+          <strong>Situation:</strong> "For back-to-school 2025 I was shipping Export as PDF for Webpage — top-requested feature, critical for our accessibility story. My assumption was we'd use existing infrastructure — essentially 'print to PDF' from a published page, poor output. Engineering came back with three options I hadn't anticipated: existing infra, Acrobat PDF Services API, and Puppeteer — an open-source headless browser."<br><br>
+          <strong>The push and pull:</strong> "My instinct was Acrobat API — we're an Adobe product, felt natural. Engineering pushed back specifically: it had underperformed on PPT conversion and the pageless-to-paged problem was better suited to Puppeteer's Chrome-native rendering. That reframe changed my thinking."<br><br>
+          <strong>Where I was most in the weeds:</strong> "Accessibility tagging was a hard requirement for HED users. Puppeteer and Colorado produced meaningfully different tag structures. I brought in accessibility specialists, coordinated sample testing, and evaluated outputs myself — creating all the test pages, then rebuilding them when MJ flagged gaps. Colorado lost image alt text entirely and marked everything H1. Puppeteer was actually more accessible despite having a known gap: figcaption tags converting to NonStruct rather than Caption. I made the call to proceed with Puppeteer — most accessible option available — and flagged the gap to monitor."<br><br>
+          <strong>Outcome:</strong> "Shipped August 2025. Worked well at launch. Met all accessibility requirements. The decision got better because engineering brought options rather than a single path, and I pushed back hard enough on accessibility that we validated it properly."
+        </div>
+      </div>
+      <div class="asection">
+        <div class="as-label">90-second version — practice verbatim</div>
+        <div class="answer">
+          <p>"For back-to-school 2025 I was shipping Export as PDF for Webpage — top-requested, critical for our accessibility story. My assumption was we'd use existing infrastructure. Engineering came back with three options I hadn't anticipated: existing infra, Acrobat API, and Puppeteer.</p>
+          <p>My instinct was Acrobat API — we're an Adobe product, felt natural. Engineering pushed back specifically: it had underperformed before and the pageless-to-paged problem was better suited to Puppeteer's Chrome-native rendering. That reframe changed my thinking.</p>
+          <p>But I didn't just take their recommendation. Accessibility tagging was a hard requirement for HED users. I brought in accessibility specialists, created all the test pages myself, and evaluated the outputs. Colorado lost image alt text entirely and marked everything H1. Puppeteer was more accessible — despite one known gap: figcaption tags converting to NonStruct rather than proper Caption tags. I made the call to proceed and flag the gap to monitor.</p>
+          <p>Shipped August 2025. Worked well at launch. The decision got better because engineering brought options rather than one path, and I pushed back hard enough on accessibility that we validated it properly before shipping."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S5: PROJECT X BRIDGE -->
+  <div class="qblock" onclick="toggleQ(this)">
+    <div class="qblock-header">
+      <span class="qblock-num" style="color:var(--accent)">★ S5</span>
+      <span class="qblock-q">Project X education bridge — Navigating ambiguity</span>
+      <span class="qblock-type t-core">B9</span>
+      <span class="qblock-chev">▼</span>
+    </div>
+    <div class="qblock-body">
+      <div class="asection">
+        <div class="as-label">Full version</div>
+        <div class="as-body">
+          <strong>Situation:</strong> "When I first joined the education team I was dropped directly into Project X — the replatforming of Adobe Spark into Adobe Express. My role was to be the bridge: running beta groups, gathering feedback from educators and districts, identifying which features were most critical, translating it all back to Express. No playbook. Timelines kept shifting. Product definition changed constantly."<br><br>
+          <strong>How I created structure:</strong> "I separated what I could control from what I couldn't. Express's timeline wasn't mine to own. What was mine was what we delivered on education's side. When timelines slipped at the Express level, we didn't. I held constant what actually mattered for end users — an intuitive experience that delivered baseline value. Every time the definition shifted, I filtered it through that lens."<br><br>
+          <strong>The hardest fight — migration timing:</strong> "I pushed constantly for the migration to happen during an off-period for education. Migrating teachers mid-school year when they had active projects would have been catastrophic. I made the same case repeatedly: the MAU numbers, the loyalty of this user base, and Canva sitting right there as an alternative. Disrupting teachers mid-year would accelerate churn to a competitor we couldn't afford to lose to."<br><br>
+          <strong>Communication through uncertainty:</strong> "I overcommunicated when I didn't have answers. 'I don't know yet but I'll keep you updated' — staying visible and honest even when the answer was uncertain kept education stakeholders from panicking."<br><br>
+          <strong>Outcome:</strong> "We launched early August 2023, right before the school year. The migration worked. Users kept their projects."
+        </div>
+      </div>
+      <div class="asection">
+        <div class="as-label">90-second version — practice verbatim</div>
+        <div class="answer">
+          <p>"My first real assignment was being the bridge between Express and education users for Project X — the full replatforming. No defined role, constantly shifting timelines, constantly shifting product scope. My job was to figure out what 'education PM for this project' meant while the project itself was in motion.</p>
+          <p>The way I created structure: I separated what I could control from what I couldn't. Express's timeline wasn't mine to control. What was mine was what we delivered on education's side. When Express timelines slipped, we didn't.</p>
+          <p>The thing I held constant was the goal: an intuitive experience that delivered baseline value for educators and students. Every time the definition shifted, I filtered it through that lens.</p>
+          <p>The hardest fight was timing. I pushed constantly for the migration to happen during an off-period for education — not mid-school year when teachers had active projects. My argument was always the same: the MAU numbers, the loyalty of this user base, and Canva sitting right there. Disrupting teachers mid-year would accelerate churn to a competitor we couldn't afford to lose to. We launched early August 2023, right before the school year. It worked.</p>
+          <p>What I learned: the goal for end users is usually the clearest fixed point you have. Anchor to that and you can stay oriented even when everything else is moving."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slabel" style="margin-top:8px">Other stories in the bank</div>
+
+  <!-- S6: ADD-ONS -->
+  <div class="qblock" onclick="toggleQ(this)">
+    <div class="qblock-header">
+      <span class="qblock-num">S6</span>
+      <span class="qblock-q">Add-ons default on — Difficult stakeholder + Influence without authority</span>
+      <span class="qblock-type t-prod">B2 · B7 · B8</span>
+      <span class="qblock-chev">▼</span>
+    </div>
+    <div class="qblock-body">
+      <div class="asection">
+        <div class="as-label">Full version</div>
+        <div class="as-body">
+          <strong>Situation:</strong> "Add-ons in Adobe Express were essentially invisible to K12 users — default off for compliance reasons, discovery below 1%. Some of these add-ons directly solved feature gaps educators were actively requesting: math keyboard, additional layouts, Google Photos. The capability existed. Nobody was getting it."<br><br>
+          <strong>First obstacle — legal:</strong> "A recent SURF audit had made legal cautious about third-party data practices. Their concern wasn't that specific add-ons were risky — it was uncertainty. So I removed the uncertainty. I audited the top 50 add-ons myself — spent a few days reading privacy policies, built a structured case: here are the ones most valuable for education, here are the ones with existing privacy policies. Gave legal something specific to react to. I also worked with the admin console PM to ensure admins could turn add-ons off — giving legal a safety valve."<br><br>
+          <strong>Second obstacle — admin console team:</strong> "They kept pushing our work for other priorities. The add-ons PM was passive. I took charge — reframed the business case as enterprise-relevant, not just education. Got the Embed VP on board to push from his side. Escalated with leadership when delays became untenable — with business impact, not frustration."<br><br>
+          <strong>Outcome:</strong> "35 add-ons default on for K12. Live today. Education users who interact with add-ons have 147% higher M1RR than those who don't. Discovery is still low at 2.5% — that's the next problem."
+        </div>
+      </div>
+      <div class="asection">
+        <div class="as-label">90-second version — practice verbatim</div>
+        <div class="answer">
+          <p>"Add-ons in Adobe Express were invisible to K12 users — default off for compliance reasons, discovery below 1%. Some directly solved feature gaps educators were asking for. The capability existed. Nobody was getting it.</p>
+          <p>Two obstacles. Legal resistance after a SURF audit — I removed the uncertainty by auditing 50 add-ons myself, reading privacy policies, building a specific case for each one. Gave legal something concrete to react to. Also worked with the admin console PM to ensure admins could turn add-ons off — giving legal a safety valve.</p>
+          <p>Second, harder: the admin console team kept pushing our work for other priorities. The add-ons PM was passive. I took charge — reframed the business case as enterprise-relevant, not just education. Got the Embed VP on board to push from his side. Escalated with leadership with business impact rather than frustration.</p>
+          <p>35 add-ons default on for K12. Live today. Education users who interact with add-ons have 147% higher M1RR than those who don't. Discovery is still low at 2.5% — that's the next problem."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S7: HZ DOC MODEL -->
+  <div class="qblock" onclick="toggleQ(this)">
+    <div class="qblock-header">
+      <span class="qblock-num">S7</span>
+      <span class="qblock-q">Hz document model — Technical depth + Big bets</span>
+      <span class="qblock-type t-prod">B1 · B6 · B11</span>
+      <span class="qblock-chev">▼</span>
+    </div>
+    <div class="qblock-body">
+      <div class="asection">
+        <div class="as-label">Full version</div>
+        <div class="as-body">
+          <strong>Situation:</strong> "For years — from the beginning of Webpage — there was a recurring debate about whether to migrate to the Horizon document model. Engineering wanted it: less maintenance, more features for free. Every time Express added something, our custom model created adaptation work. Their frustration was legitimate. But the Hz doc model wasn't built for HTML output — it would have forced us into their font service, their canvas structure, less responsive web outputs. This debate resurfaced every six months for years."<br><br>
+          <strong>Highest pressure moment — fall 2025:</strong> "We brought in senior architects from Express and Horizon for a formal evaluation. We were exploring whether switching would let us leverage Express's brand systems. I ran a structured process: formal tradeoff analysis, a proof of concept from engineering, and user research — qual and quant — on how important live co-editing was for our specific users. That was the one major feature we'd give up."<br><br>
+          <strong>The user research finding:</strong> "The research said live co-editing wasn't a priority for our users. We'd built a workaround for collaborative editing that addressed the core need. When I could show engineering specifically that the feature they were optimizing for wasn't a blocker — with data — the conversation shifted from 'you're blocking us' to 'okay, this is the right call.'"<br><br>
+          <strong>Strategic vindication:</strong> "With AI and HTML as the team's strategic direction, staying on our custom model was exactly the right technical foundation. The consistency of the position over multiple rigorous evaluations meant we were ready when the strategy caught up."
+        </div>
+      </div>
+      <div class="asection">
+        <div class="as-label">90-second version — practice verbatim</div>
+        <div class="answer">
+          <p>"For years there was a recurring debate about migrating Webpage to the Horizon document model. Engineering wanted it — less maintenance, more features for free. Their frustration was legitimate. But the Hz doc model wasn't built for HTML output: it would have forced us into their font service, their canvas structure, less responsive web outputs. I kept resisting. This came up every six months for years.</p>
+          <p>The highest pressure moment was fall 2025 — we brought in senior architects for a formal evaluation. I ran a structured process: tradeoff analysis, a proof of concept from engineering, and user research on how important live co-editing was for our users. That was the one major feature we'd give up.</p>
+          <p>The research said it wasn't a priority. We'd built a workaround for collaborative editing that addressed the core need. When I could show engineering specifically — with data — that the feature they were optimizing for wasn't a blocker for our users, the conversation shifted from 'you're blocking us' to 'okay, this is the right call.'</p>
+          <p>The final validation: with AI and HTML as the strategic direction, staying on our custom model was exactly the right technical foundation. That became clear in retrospect — but the consistency of the position over multiple rigorous evaluations meant we were ready when the strategy caught up."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S8: FAILURE -->
+  <div class="qblock" onclick="toggleQ(this)">
+    <div class="qblock-header">
+      <span class="qblock-num">S8</span>
+      <span class="qblock-q">Redirect link failure — Failure / what you'd do differently</span>
+      <span class="qblock-type t-prod">B4</span>
+      <span class="qblock-chev">▼</span>
+    </div>
+    <div class="qblock-body">
+      <div class="asection">
+        <div class="as-label">Full version</div>
+        <div class="as-body">
+          <strong>Situation:</strong> "During Project X, I was leading Webpage's migration including building our own publishing service. I caught a critical issue right before launch: I hadn't built a redirect from legacy links to new links. Any legacy file that got reopened and republished would generate a new link — the old link would break."<br><br>
+          <strong>The decision I'm not proud of:</strong> "I started working the fix with my team. But I didn't escalate it clearly enough as a blocker. The launch pressure was enormous — dates had slipped multiple times, nobody wanted to be the person who stopped it. I stayed quiet and kept working."<br><br>
+          <strong>The human consequence:</strong> "Feedback came in. The one that stuck: a woman who had built her wedding website using Webpage and put the QR code on her printed wedding invitations. She needed to make an edit but her link had broken. Her invites were already out."<br><br>
+          <strong>Two specific lessons:</strong> "First: edge case mapping has to be exhaustive. I'd thought through primary migration flows but not every tangential path. Now it's a formal step. Second: I should have been a blocker. This wasn't isolated — there were other known gaps people stayed quiet about because of the launch pressure. Working on a problem and surfacing the risk to leadership are two completely different obligations. I conflated them. I don't anymore."
+        </div>
+      </div>
+      <div class="asection">
+        <div class="as-label">90-second version — practice verbatim</div>
+        <div class="answer">
+          <p>"During Project X, I was leading Webpage's migration including building our own publishing service. I caught a critical issue right before launch: I hadn't built a redirect from legacy links to new links. Any legacy file reopened and republished would generate a new link — the old one would break.</p>
+          <p>I started working the fix with my team. But I didn't escalate it clearly as a blocker. Launch pressure was enormous — dates had slipped multiple times, nobody wanted to stop it. I stayed quiet and kept working.</p>
+          <p>Feedback came in. The one that stuck: a woman who had built her wedding website in Webpage and put the QR code on her printed wedding invitations. She needed to edit the information but her link had broken. Her invites were already out.</p>
+          <p>Two things I'd do differently. First: edge case mapping has to be exhaustive — I'd thought through primary flows but not every tangential path. Now it's a formal step. Second: I should have been a blocker. Working on a problem and surfacing the risk to leadership are two different obligations. I conflated them. I don't anymore."</p>
+        </div>
+      </div>
+      <div class="asection">
+        <div class="as-label">Important — practice note</div>
+        <div class="pitfall"><span class="pitfall-icon">⚠</span><span>Practice saying this one out loud without softening it mid-sentence. The instinct to add "but it worked out" undercuts the story. Let the failure be real. The learning is what redeems it.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S9: TEMPLATES -->
+  <div class="qblock" onclick="toggleQ(this)">
+    <div class="qblock-header">
+      <span class="qblock-num">S9</span>
+      <span class="qblock-q">Webpage templates — Prioritization (scrappy build)</span>
+      <span class="qblock-type t-prod">B6 · B1</span>
+      <span class="qblock-chev">▼</span>
+    </div>
+    <div class="qblock-body">
+      <div class="asection">
+        <div class="as-label">When to use this story</div>
+        <div class="as-body">Best as a secondary example for B6 (prioritization) if Victoria probes for a second example. Or as a supporting beat within the Webpage rescue story. Not strong enough to carry a question on its own — use it to show the prioritization instinct was consistent across multiple decisions on Webpage, not a one-time call.</div>
+      </div>
+      <div class="asection">
+        <div class="as-label">The key beats</div>
+        <div class="as-body">
+          <strong>The call:</strong> Hardcoded the first set of templates manually rather than building the self-serve submission infrastructure first. Shipped a quarter earlier. Learned from real usage before building the proper system.<br><br>
+          <strong>The resistance:</strong> Content team pushed back — they needed a scalable process and manual ingestion created work for them.<br><br>
+          <strong>The argument:</strong> Learning fast was more valuable than building right at this stage. The data from the scrappy version would tell us what templates actually converted — things we'd never know from a self-serve queue.<br><br>
+          <strong>What we learned:</strong> Usage patterns from the initial hardcoded set informed the eventual proper build. The scrappy version was the right call.<br><br>
+          <strong>One-liner:</strong> "Same prioritization instinct as functional parity — we could have built the perfect system first, but shipping something real and learning from it beat shipping nothing while we built infrastructure."
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S10: AGENTIC HOME/WP -->
+  <div class="qblock" onclick="toggleQ(this)">
+    <div class="qblock-header">
+      <span class="qblock-num">S10</span>
+      <span class="qblock-q">Agentic Home / Generative Webpage — AI product thinking</span>
+      <span class="qblock-type t-prod">B3 · B9</span>
+      <span class="qblock-chev">▼</span>
+    </div>
+    <div class="qblock-body">
+      <div class="asection">
+        <div class="as-label">When to use this story</div>
+        <div class="as-body">Use as secondary for B3 after K12 filtering, or as secondary for B9 after Project X bridge. Neither story has shipped yet — be transparent about that and lead with the design philosophy, which is genuinely strong.</div>
+      </div>
+      <div class="asection">
+        <div class="as-label">The key beats</div>
+        <div class="as-body">
+          <strong>Generative Webpage:</strong> Defined the MVP experience for an AI-first creation flow. Core design principle: AI as scaffold, not finished product. The student makes the creative decisions — AI interprets intent, expands a prompt into a brief, offers directions. MVP in build.<br><br>
+          <strong>Express Home:</strong> Inherited in March 2026 with no roadmap. Same principle — AI that scaffolds rather than replaces. Key constraint: not a priority for Express AI foundations team. Approach: do the definition work ourselves (specific prompts, recipes, interaction patterns) so when we go to them we're asking them to implement something specific. Starting with higher ed over K12 due to compliance complexity.<br><br>
+          <strong>The through-line:</strong> "The most important AI product decisions aren't about what AI can do — they're about where you draw the line between AI action and human judgment. In education that line is drawn by what students need to learn. Get it wrong and you build AI that's impressive but educationally harmful."<br><br>
+          <strong>Frame.io bridge:</strong> "The same question applies at Frame.io — where does the Firefly AI Assistant act and where does human judgment stay in the loop? I've been thinking carefully about that boundary in education and I'd bring the same thinking to Frame.io's agentic workflows."
+        </div>
+      </div>
+      <div class="asection">
+        <div class="as-label">Honesty note</div>
+        <div class="pitfall"><span class="pitfall-icon">⚠</span><span>Neither story has shipped yet. If Victoria probes on outcomes, be direct: "This is still in the build and definition phase — I can't point to shipped results yet. What I can point to is the optional login framework as my shipped AI product story, and these as where my current thinking is evolving." Don't oversell in-progress work.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S11: AI WORKFLOWS -->
+  <div class="qblock" onclick="toggleQ(this)">
+    <div class="qblock-header">
+      <span class="qblock-num">S11</span>
+      <span class="qblock-q">"How do you personally use AI in your day-to-day work as a PM?"</span>
+      <span class="qblock-type t-prod">Direct Q</span>
+      <span class="qblock-chev">▼</span>
+    </div>
+    <div class="qblock-body">
+      <div class="asection">
+        <div class="as-label">Why Victoria will ask this</div>
+        <div class="as-body">She's building Frame.io's AI and ecosystem platform. She needs a PM who uses AI as a working tool, not one who talks about it abstractly. This may surface as "how do you personally use AI" or embedded in a follow-up: "you mentioned AI — are you using it yourself?" The worst answer is vague or performative. The best shows you're a practitioner with a real workflow and genuine critical perspective on the tool.</div>
+      </div>
+      <div class="asection">
+        <div class="as-label">Your actual workflow — the full answer</div>
+        <div class="as-body">
+          <strong>Research and thought partnership:</strong> "I create Claude projects where I upload research, competitive analysis, and product context — and use it as a thinking partner to stress-test my reasoning, poke holes in my arguments, and surface angles I haven't considered. It's the closest thing I have to a smart colleague who's always available and has no political stake in the answer."<br><br>
+          <strong>Competitive research:</strong> "It's dramatically accelerated what used to take days. I can go deep on a competitor's product strategy, positioning, and gaps in hours rather than weeks. I've done this extensively on Frame.io's competitive landscape — Ziflow, Dropbox Replay, Ftrack."<br><br>
+          <strong>Data analysis:</strong> "I use Claude and Cursor together for Amplitude analysis — querying, interpreting, and finding patterns in product data that would have required a data analyst before. That's changed how fast I can get from a question to an insight."<br><br>
+          <strong>Document generation:</strong> "Cursor with skills as a starting point for PRDs, user research synthesis, and data analysis frameworks. Not replacing the thinking — getting past the blank page faster so I can focus on the judgment calls."<br><br>
+          <strong>Prototyping:</strong> "I use Cursor to build working prototypes before committing engineering resources — Protopack and Replit depending on what I need. Being able to put something in front of users in days rather than weeks has changed how I validate ideas."<br><br>
+          <strong>Adobe internal research:</strong> "Fluffyjaws for navigating institutional context and past decisions — particularly useful for understanding what's already been tried without having to know the right person to ask."<br><br>
+          <strong>The limitation I've learned:</strong> "AI is most valuable when you already have strong judgment. It's a thinking accelerator, not a judgment replacement. It tells you what's plausible, not what's true — and it needs to be directed toward the right questions or it produces confident-sounding answers to the wrong ones."
+        </div>
+      </div>
+      <div class="asection">
+        <div class="as-label">90-second version — practice verbatim</div>
+        <div class="answer">
+          <p>"Actively — AI has changed how I work fundamentally, not just incrementally.</p>
+          <p>I use Claude projects as a thinking partner — uploading research and context to stress-test ideas, poke holes in my reasoning, and do competitive analysis in hours rather than days. I use Claude and Cursor together for Amplitude data analysis — going from question to insight without needing a data analyst. I use Cursor for building working prototypes before committing engineering resources — Protopack and Replit depending on what's needed. For Adobe-specific research, Fluffyjaws. For PRDs, research synthesis, analysis frameworks — Claude and Cursor as a starting point.</p>
+          <p>What I've learned from actually using it: AI is most valuable when you have strong judgment. It's a thinking accelerator, not a judgment replacement. It tells you what's plausible, not what's true, and it needs to be directed toward the right questions.</p>
+          <p>That's directly shaped how I design AI product features. The ones that earn trust accelerate what users already know how to do. The ones that fail try to replace the doing entirely. I've experienced that as a user — I design for it as a PM."</p>
+        </div>
+      </div>
+      <div class="asection">
+        <div class="as-label">If she probes deeper — "give me a specific example"</div>
+        <div class="as-body">The interview prep process itself is fair game. You've used AI to do weeks of competitive research on Frame.io, develop a strategic POV, map stories to behavioral questions, identify gaps in your preparation, and stress-test your thinking. That's real, sophisticated AI usage for complex knowledge work — directly analogous to how professional creative teams would use AI in a review workflow.<br><br>
+        Also have ready: "The failure story I carry from the Webpage launch is part of why I now use AI to red-team my own specs — asking it to surface edge cases and failure modes before engineering starts building. If I'd done that on the migration spec, the redirect link gap might have surfaced."</div>
+      </div>
+      <div class="asection">
+        <div class="as-label">On technical prototyping specifically</div>
+        <div class="as-body">If she asks about complex API-connected prototypes: "I've been building working prototypes with Cursor and Replit — UI and interaction level, not complex API integrations yet. That's an area I'm actively developing, particularly as I think about Frame.io's developer platform work. Understanding what it feels like to build against an API from the developer side would make me a better PM for that charter." Honest, shows self-awareness, frames it as a direction rather than a gap.</div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <!-- BEHAVIORAL PAGE -->
@@ -2226,6 +2626,44 @@ function showMobile(id, el){
   window.scrollTo(0,0);
 }
 function toggleQ(el){el.classList.toggle('open')}
+
+// Matrix rendering
+(function(){
+  var anc='#0F6E56',sec='#185FA5',par='#854F0B';
+  function dot(c){
+    if(!c) return '<td style="text-align:center"><div style="width:14px;height:14px;border-radius:50%;background:var(--bg3);border:.5px solid var(--border2);margin:auto"></div></td>';
+    var label=c==='A'?'A':c==='2'?'2':'~';
+    var bg=c==='A'?anc:c==='2'?sec:par;
+    return '<td style="text-align:center"><div style="width:14px;height:14px;border-radius:50%;background:'+bg+';color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:8px;font-weight:700">'+label+'</div></td>';
+  }
+  var rows=[
+    {q:'★ B1 — Big bets',sub:'Conviction under skepticism',cols:['A','2',null,'2','~',null,'2',null,null,'~']},
+    {q:'★ B2 — Influence w/o authority',sub:'Recruiter flagged explicitly',cols:['2','A',null,'2',null,null,null,null,null,null]},
+    {q:'★ B3 — Agentic / AI product',sub:'Recruiter flagged explicitly',cols:[null,'2','A',null,null,null,null,null,null,'2']},
+    {q:'★ B5 — Eng/design partnership',sub:'"Glued at the hip"',cols:['~','~',null,null,null,'A',null,null,null,null]},
+    {q:'★ B6 — Prioritization',sub:'Core P50 signal',cols:['A',null,null,'2','2',null,'2',null,null,null]},
+    {q:'B4 — Failure',sub:'Every strong interviewer asks',cols:[null,null,null,null,null,null,null,null,'A',null]},
+    {q:'B7 — Using data',sub:'Analytical instincts',cols:['A',null,null,'A',null,null,'2',null,null,null]},
+    {q:'B8 — Difficult stakeholder',sub:'Relationship navigation',cols:[null,'2',null,'A',null,null,null,null,null,null]},
+    {q:'B9 — Navigating ambiguity',sub:'Open-ended charter',cols:['2',null,null,null,null,null,null,'A',null,'2']},
+    {q:'B10 — Product you\'re proud of',sub:'Values + taste signal',cols:['A','2',null,null,null,null,null,null,null,null]},
+    {q:'B11 — Technical depth',sub:'Victoria is ex-engineer',cols:['~','A','2',null,null,'2','A',null,null,null]},
+    {q:'B12 — Learning domain fast',sub:'Domain expertise signal',cols:['A','2',null,null,null,null,null,null,null,null]}
+  ];
+  var dividers=[0,5];
+  var html='';
+  rows.forEach(function(r,i){
+    if(dividers.indexOf(i)>=0){
+      html+='<tr><td colspan="11" style="background:var(--bg3);font-size:8px;font-weight:600;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;padding:4px 6px">'+(i===0?'★ Victoria\'s priority questions':'Other behavioral questions')+'</td></tr>';
+    }
+    html+='<tr>';
+    html+='<td style="padding:4px 5px;border-bottom:.5px solid var(--border)"><div style="font-size:10px;color:var(--text);line-height:1.3">'+r.q+'</div><div style="font-size:8px;color:var(--text3);margin-top:1px">'+r.sub+'</div></td>';
+    r.cols.forEach(function(c){html+=dot(c)});
+    html+='</tr>';
+  });
+  var el=document.getElementById('matrix-body');
+  if(el) el.innerHTML=html;
+})();
 </script>
 </body>
 </html>
