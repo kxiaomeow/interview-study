@@ -18,9 +18,10 @@
   body{font-family:'Instrument Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:14px;min-height:100vh}
 
   /* Layout */
-  .layout{display:flex;min-height:100vh}
-  .sidebar{width:240px;flex-shrink:0;background:var(--bg2);border-right:.5px solid var(--border);padding:28px 0;position:fixed;top:0;left:0;height:100vh;overflow-y:auto}
-  .main{margin-left:240px;flex:1;padding:44px 48px;max-width:calc(100% - 240px);overflow-x:hidden}
+  html{box-sizing:border-box}
+  .layout{display:flex;align-items:flex-start;min-height:100vh}
+  .sidebar{width:240px;min-width:240px;flex-shrink:0;background:var(--bg2);border-right:.5px solid var(--border);padding:28px 0;position:sticky;top:0;height:100vh;overflow-y:auto}
+  .main{flex:1;padding:44px 48px;min-width:0;overflow-x:hidden}
 
   /* Sidebar */
   .sb-header{padding:0 20px 20px;border-bottom:.5px solid var(--border);margin-bottom:16px}
@@ -195,34 +196,34 @@
 
   <div class="sb-section">
     <div class="sb-section-label">Start here</div>
-    <button class="sb-item active" onclick="show('victoria')"><span class="sb-dot"></span>Know your interviewer<span class="sb-badge b-prep">Key</span></button>
-    <button class="sb-item" onclick="show('strategy')"><span class="sb-dot"></span>Interview strategy</button>
+    <button class="sb-item active" onclick="show('victoria', this)"><span class="sb-dot"></span>Know your interviewer<span class="sb-badge b-prep">Key</span></button>
+    <button class="sb-item" onclick="show('strategy', this)"><span class="sb-dot"></span>Interview strategy</button>
   </div>
 
   <div class="sb-section" style="margin-top:8px">
     <div class="sb-section-label">Her three topics</div>
-    <button class="sb-item" onclick="show('agentic')"><span class="sb-dot"></span>Agentic experiences<span class="sb-badge b-core">Core</span></button>
-    <button class="sb-item" onclick="show('xfn')"><span class="sb-dot"></span>Cross-functional collab<span class="sb-badge b-core">Core</span></button>
-    <button class="sb-item" onclick="show('domain')"><span class="sb-dot"></span>Domain expertise<span class="sb-badge b-core">Core</span></button>
+    <button class="sb-item" onclick="show('agentic', this)"><span class="sb-dot"></span>Agentic experiences<span class="sb-badge b-core">Core</span></button>
+    <button class="sb-item" onclick="show('xfn', this)"><span class="sb-dot"></span>Cross-functional collab<span class="sb-badge b-core">Core</span></button>
+    <button class="sb-item" onclick="show('domain', this)"><span class="sb-dot"></span>Domain expertise<span class="sb-badge b-core">Core</span></button>
   </div>
 
   <div class="sb-section" style="margin-top:8px">
     <div class="sb-section-label">Other likely questions</div>
-    <button class="sb-item" onclick="show('behavioral')"><span class="sb-dot"></span>Behavioral question bank<span class="sb-badge b-core">New</span></button>
-    <button class="sb-item" onclick="show('bets')"><span class="sb-dot"></span>Big bets + bureaucracy<span class="sb-badge b-prod">Prod</span></button>
-    <button class="sb-item" onclick="show('ecosystem')"><span class="sb-dot"></span>Ecosystem + API thinking<span class="sb-badge b-prod">Prod</span></button>
-    <button class="sb-item" onclick="show('ai')"><span class="sb-dot"></span>AI product questions<span class="sb-badge b-prod">Prod</span></button>
-    <button class="sb-item" onclick="show('light-case')"><span class="sb-dot"></span>Light product cases<span class="sb-badge b-prod">Prod</span></button>
+    <button class="sb-item" onclick="show('behavioral', this)"><span class="sb-dot"></span>Behavioral question bank<span class="sb-badge b-core">New</span></button>
+    <button class="sb-item" onclick="show('bets', this)"><span class="sb-dot"></span>Big bets + bureaucracy<span class="sb-badge b-prod">Prod</span></button>
+    <button class="sb-item" onclick="show('ecosystem', this)"><span class="sb-dot"></span>Ecosystem + API thinking<span class="sb-badge b-prod">Prod</span></button>
+    <button class="sb-item" onclick="show('ai', this)"><span class="sb-dot"></span>AI product questions<span class="sb-badge b-prod">Prod</span></button>
+    <button class="sb-item" onclick="show('light-case', this)"><span class="sb-dot"></span>Light product cases<span class="sb-badge b-prod">Prod</span></button>
   </div>
 
   <div class="sb-section" style="margin-top:8px">
     <div class="sb-section-label">Reference</div>
-    <button class="sb-item" onclick="show('recruiter-notes')"><span class="sb-dot"></span>Recruiter's full notes<span class="sb-badge b-prep">Key</span></button>
-    <button class="sb-item" onclick="show('concepts')"><span class="sb-dot"></span>Concepts to know<span class="sb-badge b-prep">Study</span></button>
-    <button class="sb-item" onclick="show('market')"><span class="sb-dot"></span>Strategy + market landscape</button>
-    <button class="sb-item" onclick="show('acronyms')"><span class="sb-dot"></span>Acronyms + glossary</button>
-    <button class="sb-item" onclick="show('gaps')"><span class="sb-dot"></span>Research gaps + fixes<span class="sb-badge b-gap">Gaps</span></button>
-    <button class="sb-item" onclick="show('ask')"><span class="sb-dot"></span>Questions to ask her</button>
+    <button class="sb-item" onclick="show('recruiter-notes', this)"><span class="sb-dot"></span>Recruiter's full notes<span class="sb-badge b-prep">Key</span></button>
+    <button class="sb-item" onclick="show('concepts', this)"><span class="sb-dot"></span>Concepts to know<span class="sb-badge b-prep">Study</span></button>
+    <button class="sb-item" onclick="show('market', this)"><span class="sb-dot"></span>Strategy + market landscape</button>
+    <button class="sb-item" onclick="show('acronyms', this)"><span class="sb-dot"></span>Acronyms + glossary</button>
+    <button class="sb-item" onclick="show('gaps', this)"><span class="sb-dot"></span>Research gaps + fixes<span class="sb-badge b-gap">Gaps</span></button>
+    <button class="sb-item" onclick="show('ask', this)"><span class="sb-dot"></span>Questions to ask her</button>
   </div>
 </nav>
 
@@ -688,9 +689,6 @@
   </div>
 </div>
 
-  </div>
-</div>
-
 <!-- BEHAVIORAL PAGE -->
 <div class="page" id="page-behavioral">
   <div class="ph">
@@ -706,13 +704,14 @@
 
   <div class="strat-box">
     <div class="strat-title">How to use this page</div>
-    <div class="strat-body">For categories marked <strong style="color:var(--green)">Story ready</strong> — review the anchor story and make sure you can tell it in 90 seconds with a specific obstacle and concrete outcome. For categories marked <strong style="color:var(--amber)">Needs excavation</strong> — read the thought-provoking prompts and let them surface the right memory. Don't force a story that doesn't fit. For categories marked <strong style="color:var(--accent3)">Gap</strong> — prepare a bridge answer that honestly addresses the gap while redirecting to your strength. Every answer should follow: <strong>Situation (1 sentence) → Decision you made → Obstacle → Specific action → Outcome.</strong></div>
+    <div class="strat-body">For categories marked <strong style="color:var(--green)">Story ready</strong> — review the anchor story and make sure you can tell it in 90 seconds with a specific obstacle and concrete outcome. For categories marked <strong style="color:var(--amber)">Needs excavation</strong> — read the thought-provoking prompts and let them surface the right memory. Don't force a story that doesn't fit. For categories marked <strong style="color:var(--accent3)">Gap</strong> — prepare a bridge answer that honestly addresses the gap while redirecting to your strength. Every answer should follow: <strong>Situation (1 sentence) → Decision you made → Obstacle → Specific action → Outcome.</strong><br><br>
+    <strong style="color:var(--accent)">★ Starred questions</strong> are the ones most likely to come up given Victoria's specific background and the recruiter's briefing notes. Prepare these first.</div>
   </div>
 
   <!-- B1: BIG BETS -->
   <div class="qblock" onclick="toggleQ(this)">
     <div class="qblock-header">
-      <span class="qblock-num">B1</span>
+      <span class="qblock-num" style="color:var(--accent)">★ B1</span>
       <span class="qblock-q">"Tell me about a big bet you made that others were skeptical of. How did you move it forward?"</span>
       <div style="display:flex;gap:6px;align-items:center">
         <span class="qblock-type" style="background:rgba(122,171,98,.15);color:var(--green)">Story ready</span>
@@ -744,7 +743,7 @@
   <!-- B2: INFLUENCE WITHOUT AUTHORITY -->
   <div class="qblock" onclick="toggleQ(this)">
     <div class="qblock-header">
-      <span class="qblock-num">B2</span>
+      <span class="qblock-num" style="color:var(--accent)">★ B2</span>
       <span class="qblock-q">"Tell me about a time you drove alignment across teams that didn't report to you — especially with real resistance."</span>
       <div style="display:flex;gap:6px;align-items:center">
         <span class="qblock-type" style="background:rgba(122,171,98,.15);color:var(--green)">Story ready</span>
@@ -775,7 +774,7 @@
   <!-- B3: AGENTIC / AI -->
   <div class="qblock" onclick="toggleQ(this)">
     <div class="qblock-header">
-      <span class="qblock-num">B3</span>
+      <span class="qblock-num" style="color:var(--accent)">★ B3</span>
       <span class="qblock-q">"Tell me about a time you worked on an AI or agentic product. What was your approach and what did you learn?"</span>
       <div style="display:flex;gap:6px;align-items:center">
         <span class="qblock-type" style="background:rgba(122,171,98,.15);color:var(--green)">Story ready</span>
@@ -832,7 +831,7 @@
   <!-- B5: ENG/DESIGN PARTNERSHIP -->
   <div class="qblock" onclick="toggleQ(this)">
     <div class="qblock-header">
-      <span class="qblock-num">B5</span>
+      <span class="qblock-num" style="color:var(--accent)">★ B5</span>
       <span class="qblock-q">"Describe how you work with engineering and design. Tell me about a specific moment where that partnership changed what you built."</span>
       <div style="display:flex;gap:6px;align-items:center">
         <span class="qblock-type" style="background:rgba(196,150,58,.15);color:var(--amber)">Needs excavation</span>
@@ -870,7 +869,7 @@
   <!-- B6: PRIORITIZATION -->
   <div class="qblock" onclick="toggleQ(this)">
     <div class="qblock-header">
-      <span class="qblock-num">B6</span>
+      <span class="qblock-num" style="color:var(--accent)">★ B6</span>
       <span class="qblock-q">"Tell me about a time you had to make a hard prioritization call — saying no to something important or cutting scope under pressure."</span>
       <div style="display:flex;gap:6px;align-items:center">
         <span class="qblock-type" style="background:rgba(196,150,58,.15);color:var(--amber)">Needs excavation</span>
@@ -2135,11 +2134,12 @@
 </div>
 
 <script>
-function show(id){
+function show(id, el){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.sb-item').forEach(b=>b.classList.remove('active'));
-  document.getElementById('page-'+id).classList.add('active');
-  event.currentTarget.classList.add('active');
+  var target = document.getElementById('page-'+id);
+  if(target) target.classList.add('active');
+  if(el) el.classList.add('active');
 }
 function toggleQ(el){el.classList.toggle('open')}
 </script>
