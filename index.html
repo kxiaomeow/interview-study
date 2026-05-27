@@ -630,7 +630,7 @@
         <div class="as-label">The answer frame</div>
         <div class="answer">
           <p><strong>The way I think about PM-eng-design partnership: I'm a collaborator in the problem space, not a client handing off requirements.</strong> In practice that means I join engineering standups rather than just sprint reviews. I understand technical constraints well enough to know when I'm asking for a 2-week build vs. a 2-day build. And I treat design explorations as discovery, not just execution — some of my sharpest product insights have come from watching a designer iterate on a concept that surfaced a user need I hadn't articulated.</p>
-          <p><strong>A specific example:</strong> [Fill in a real moment — a time an engineer told you something technical that changed what you shipped, or a designer exploration that revealed a user need you'd missed. This is the most important thing to prepare before the interview. See the prep note below.]</p>
+          <p><strong>A specific example — PDF export:</strong> When I was shipping Export as PDF, I assumed we'd use the Acrobat API — we're an Adobe product, it felt natural. Engineering came back with three options I hadn't anticipated and pushed back specifically on Acrobat API: it had underperformed on previous conversions and the pageless-to-paged problem was better suited to Puppeteer's Chrome-native rendering. That reframe changed my decision. I then got into the weeds on accessibility tagging myself — created all the test pages, brought in specialists, compared outputs. Colorado lost image alt text entirely and marked everything H1. Puppeteer was more accessible. The decision got better because engineering brought options rather than a single path, and I pushed back hard enough that we validated the right answer properly.</p>
           <p><strong>The test I use:</strong> Would my engineering lead and design lead each say this PM made their work better — not just more organized, but genuinely better? That's the bar I hold myself to. When a PM-eng relationship is working, engineers bring product problems to the PM proactively, not just technical blockers. That's the trust signal I look for.</p>
           <p><em>For Frame.io specifically: Victoria's charter involves C2C hardware integrations and developer platform work — areas where the technical constraints are tightly coupled to the product decisions. Being credible to an engineering partner in that space means understanding enough about API design, webhook architecture, and hardware integration patterns to have a real conversation about trade-offs. That's something I'd invest in building quickly.</em></p>
         </div>
@@ -639,7 +639,7 @@
         <div class="as-label">Critical prep note</div>
         <div class="pitfall">
           <span class="pitfall-icon">⚠</span>
-          <span><strong>You must fill in the specific story before the interview.</strong> Think back through Express Webpage and Express Home: was there a moment where an engineer's technical input changed the product direction? A design exploration that revealed something unexpected? A decision where you and eng disagreed and the engineer was right? That real moment is what separates a convincing answer from a generic one. Victoria will probe until she gets to the specific.</span>
+          <span><strong>Your story is the PDF export decision.</strong> Engineering brought three options, you pushed back toward Acrobat API, they convinced you with a specific technical argument, you got into the accessibility validation weeds yourself. See S4 in the Story Bank for the full version and 90-second answer. Also have the Hz document model as a secondary — years of sustained technical debate where you held your position against engineering pressure and were validated by the strategic direction.</span>
         </div>
       </div>
     </div>
@@ -1252,16 +1252,20 @@
     </div>
     <div class="qblock-body">
       <div class="asection">
-        <div class="as-label">Your anchor story</div>
-        <div class="as-body"><strong>Express Home agentic vision + Generative Webpage initiative.</strong> Two angles: (1) defining agentic product vision from scratch since March 2026 — the design questions you've been working through; (2) the generative Webpage launch — first AI-first surface in Express, what you learned about creative professional skepticism of automation.</div>
+        <div class="as-label">Your anchor story — K12 content filtering</div>
+        <div class="as-body"><strong>K12 content filtering on Firefly Image Model 4.</strong> Partnered with compliance PM to build input + output filtering. Thursday-to-Tuesday production incident when Magic School flagged inappropriate images from the embed SDK. Scoped and shipped a fix in 5 days. Live today. See S3 in Story Bank for full version.</div>
       </div>
       <div class="asection">
-        <div class="as-label">The shape — 90 seconds</div>
+        <div class="as-label">90-second version</div>
         <div class="answer">
-          <p><strong>The generative Webpage story:</strong> "I defined and launched the generative Webpage initiative — positioning it as an AI-first surface within Express. The thing I learned that I carry into every AI product decision now: creative professionals resist automation that feels like it's making decisions for them. The features that earned trust were the ones where AI handled the laborious parts — generating a starting point, auto-formatting, suggesting variations — while leaving every meaningful creative choice with the user."</p>
-          <p><strong>The agentic vision work:</strong> "Since March I've been defining the agentic product vision for Express Home. The core design question I've been working through is: which actions should the surface take proactively on behalf of a student, and which should always require explicit intent? Get that wrong in either direction and you either create a noisy presumptuous experience or a passive one that doesn't unlock value."</p>
-          <p><em>What I'd bring to Frame.io: "At Frame.io, the agentic question that interests me most is the feedback loop between Frame.io's review history and the Firefly AI Assistant — making Frame.io the memory layer so agents learn what's been approved and what feedback patterns exist, rather than starting from zero every session."</em></p>
+          <p>"I partnered with our compliance PM to build a content filtering system on top of Firefly's image model to make it K12-safe — input filtering on prompts and output filtering on images before they're shown. The design challenge was making input filtering contextual, not keyword-based. 'War' should work in a history lesson but not in a violent context. Currently skews too restrictive for educators — that's the ongoing calibration.</p>
+          <p>The more acute version: Magic School flagged inappropriate images on a Thursday. We had until Tuesday. The filter existed in production but hadn't been applied to the embed SDK for logged-out users — the specific path students were using. We scoped the fix, confirmed it wouldn't break the guest flow, and shipped it. Magic School turned the image generator back on for students the following week.</p>
+          <p>What I took from it: AI safety infrastructure needs to be platform-wide from the start. The gap existed because the filter was built for one access path and not uniformly applied. That's now a launch requirement."</p>
         </div>
+      </div>
+      <div class="asection">
+        <div class="as-label">Secondary angle — if she wants more AI product depth</div>
+        <div class="as-body">Generative Webpage + Express Home agentic vision. Key principle: AI that scaffolds rather than replaces. In education the value isn't just the output — it's what students learn in the process. See S10 in Story Bank. Be honest neither has shipped yet — lead with K12 filtering as the shipped story.</div>
       </div>
     </div>
   </div>
@@ -1278,102 +1282,92 @@
     </div>
     <div class="qblock-body">
       <div class="asection">
-        <div class="as-label">What makes a strong failure answer</div>
-        <div class="as-body">Three things: (1) a real failure — not a disguised strength ("I work too hard"). (2) genuine ownership — not blaming the team, the org, or bad luck. (3) a specific learning that changed how you work after. Victoria will see through a sanitized failure story immediately — she's a former engineer who's shipped things that broke.</div>
+        <div class="as-label">Your anchor story — redirect link failure</div>
+        <div class="as-body"><strong>Project X launch — didn't build a redirect from legacy links to new links.</strong> Caught it right before launch. Started working the fix but didn't escalate clearly as a blocker. Shipped anyway. A woman had built her wedding website in Webpage and put the QR code on printed invitations — she needed to edit the information but her link had broken. See S8 in Story Bank for full version.</div>
       </div>
       <div class="asection">
-        <div class="as-label">The shape — regardless of which story you use</div>
+        <div class="as-label">90-second version</div>
         <div class="answer">
-          <p><strong>What happened:</strong> Be direct. What specifically failed — a feature that didn't land, a roadmap bet that turned out to be wrong, a stakeholder relationship that broke down, a launch that missed the mark?</p>
-          <p><strong>Your role in it:</strong> Name what you did or didn't do that contributed. Not self-flagellation — just honest ownership. "I moved too fast on X without validating Y" or "I assumed alignment that wasn't there."</p>
-          <p><strong>What you learned:</strong> Something specific that changed your behavior. Not "I learned to communicate better" — that's too vague. Something like "I now always confirm the decision-making authority before I start building alignment" or "I never launch without defining the rollback criteria upfront."</p>
-          <p><em>Tie to Frame.io: "The reason I'm telling you this one specifically is that the lesson I took from it maps directly to what I see as one of Frame.io's current challenges, which is [X]."</em></p>
+          <p>"During Project X I was leading Webpage's migration including building our own publishing service. I caught a critical issue right before launch: I hadn't built a redirect from legacy links to new links. Any legacy file reopened and republished would generate a new link — the old one would break.</p>
+          <p>I started working the fix with my team. But I didn't escalate it clearly as a blocker. Launch pressure was enormous — dates had slipped multiple times, nobody wanted to stop it. I stayed quiet and kept working.</p>
+          <p>Feedback came in. The one that stuck: a woman who had built her wedding website in Webpage and put the QR code on her printed wedding invitations. She needed to edit the information but her link had broken. Her invites were already out.</p>
+          <p>Two things I'd do differently. First: edge case mapping has to be exhaustive — I now use AI to red-team my specs before engineering starts building, specifically to surface workflows I might have missed. Second: working on a problem and surfacing the risk to leadership are two different obligations. I conflated them. I don't anymore."</p>
         </div>
       </div>
       <div class="asection">
-        <div class="as-label">You said you have a good one — prep note</div>
-        <div class="pitfall"><span class="pitfall-icon">⚠</span><span>Before the interview, practice saying your failure story out loud all the way through without softening it mid-sentence. The instinct to add "but it actually worked out" or "in hindsight it was fine" undercuts the story. Let the failure be real. The learning is what redeems it.</span></div>
+        <div class="as-label">Critical practice note</div>
+        <div class="pitfall"><span class="pitfall-icon">⚠</span><span>Practice this one out loud without softening it mid-sentence. The instinct to add "but it worked out" or "in hindsight it was fine" undercuts the story. Let the failure be real. The two specific lessons — exhaustive edge case mapping and the two separate obligations — are what redeem it.</span></div>
       </div>
     </div>
   </div>
 
-  <!-- B5: ENG/DESIGN PARTNERSHIP -->
+<!-- B5: ENG/DESIGN PARTNERSHIP -->
   <div class="qblock" onclick="toggleQ(this)">
     <div class="qblock-header">
       <span class="qblock-num" style="color:var(--accent)">★ B5</span>
       <span class="qblock-q">"Describe how you work with engineering and design. Tell me about a specific moment where that partnership changed what you built."</span>
       <div style="display:flex;gap:6px;align-items:center">
-        <span class="qblock-type" style="background:rgba(196,150,58,.15);color:var(--amber)">Needs excavation</span>
+        <span class="qblock-type" style="background:rgba(122,171,98,.15);color:var(--green)">Story ready</span>
         <span class="qblock-chev">▼</span>
       </div>
     </div>
     <div class="qblock-body">
       <div class="asection">
-        <div class="as-label">What Victoria is really testing</div>
-        <div class="as-body">She's an ex-engineer who managed engineering teams at Autodesk. She can tell immediately whether a PM actually sits in the work with engineers or just assigns tickets and waits. The signal she wants: your engineering partner changed your thinking at some point — not just executed your direction.</div>
+        <div class="as-label">Your anchor story — Export as PDF</div>
+        <div class="as-body"><strong>PDF export, August 2025.</strong> Engineering came back with 3 options you hadn't anticipated. You pushed back toward Acrobat API — they convinced you with a specific technical reason (pageless-to-paged, Chrome-native rendering in Puppeteer). You got in the accessibility weeds yourself: created all test pages, brought in specialists, compared Puppeteer vs Colorado tagging. Colorado lost alt text entirely and marked everything H1. Puppeteer was more accessible despite one known gap. You made the call. Shipped on time. See S4 in Story Bank for full version.</div>
       </div>
       <div class="asection">
-        <div class="as-label">Thought-provoking prompts — let these surface the right memory</div>
-        <div class="steps">
-          <div class="step"><div class="step-n">→</div><div><div class="step-title">The constraint that improved the product</div><div class="step-body">Was there a moment an engineer said "that'll take 6 weeks but if we do it this way it's 2 days" — and the simpler version turned out to be better? A technical constraint that forced you to simplify in a way that actually served the user better?</div></div></div>
-          <div class="step"><div class="step-n">→</div><div><div class="step-title">The design exploration that revealed something</div><div class="step-body">Did a designer come back with an exploration that showed users trying to do something you hadn't designed for? A prototype test that surfaced a mental model you'd gotten wrong? A visual solution that made you rethink the information architecture?</div></div></div>
-          <div class="step"><div class="step-n">→</div><div><div class="step-title">The disagreement that made the product better</div><div class="step-body">Was there a moment where your eng lead or designer pushed back on your direction, you had a real debate, and either they convinced you or you convinced them — but the outcome of the debate was better than either of your starting positions?</div></div></div>
-          <div class="step"><div class="step-n">→</div><div><div class="step-title">The moment they came to you proactively</div><div class="step-body">Did an engineer ever flag something in standup — a user complaint they noticed, a technical issue they anticipated, a usage pattern in the data — that changed what you prioritized? That's the trust signal: when engineers bring product problems to you, not just technical blockers.</div></div></div>
-          <div class="step"><div class="step-n">→</div><div><div class="step-title">The SDK/partner integration story</div><div class="step-body">On the optional login framework or embed SDK work — was there a moment where the engineering implementation of the authorization model surfaced a product design consideration you hadn't thought through? Where the technical architecture constrained or shaped the user experience in a meaningful way?</div></div></div>
-        </div>
-      </div>
-      <div class="asection">
-        <div class="as-label">The frame to use once you find the moment</div>
+        <div class="as-label">90-second version</div>
         <div class="answer">
-          <p><strong>Setup:</strong> "On [project], I was working closely with [eng lead / designer] on [feature/integration]."</p>
-          <p><strong>The moment:</strong> "[Specific thing they said or showed you.] I hadn't thought about it that way."</p>
-          <p><strong>What changed:</strong> "It changed [what we built / how we prioritized / what problem we were actually solving]."</p>
-          <p><strong>The outcome:</strong> "The product was better for it — [specifically how]."</p>
-          <p><em>Close with: "That's the kind of partnership I look for — when an engineer or designer changes my thinking, not just executes my direction. I'd want to build that same relationship with Frame.io's engineering team on the ecosystem and API charter."</em></p>
+          <p>"For back-to-school 2025 I was shipping Export as PDF — top-requested, critical for our accessibility story. My assumption was we'd use existing infrastructure. Engineering came back with three options I hadn't anticipated: existing infra, Acrobat API, and Puppeteer.</p>
+          <p>My instinct was Acrobat API — we're an Adobe product. Engineering pushed back specifically: it had underperformed before and the pageless-to-paged problem was better suited to Puppeteer's Chrome-native rendering. That reframe changed my thinking.</p>
+          <p>But I didn't just take their recommendation. Accessibility was a hard requirement for HED users. I created all the test pages myself, brought in accessibility specialists, and evaluated Puppeteer vs Colorado tagging directly. Colorado lost image alt text entirely and marked everything H1. Puppeteer was more accessible — one known gap: figcaption tags converting to NonStruct instead of Caption. I made the call to proceed and flagged the gap to monitor. MJ also caught that grid images were linking unexpectedly — immediate fix.</p>
+          <p>Shipped August 2025. Worked well at launch. The decision got better because engineering brought options rather than one path — and I pushed back hard enough on accessibility that we validated it properly before shipping."</p>
         </div>
+      </div>
+      <div class="asection">
+        <div class="as-label">Secondary angle — Hz document model</div>
+        <div class="as-body">Years-long technical debate with engineering about migrating to the Horizon document model. Engineering kept pushing; you kept resisting with specific technical reasons (WYSIWYG fonts, HTML output, canvas constraints). Multiple formal evaluations. You used user research to resolve it — live co-editing wasn't a priority for your users. Engineering eventually agreed. Strategic vindication when AI and HTML became the priority direction. See S7 in Story Bank.</div>
       </div>
     </div>
   </div>
 
-  <!-- B6: PRIORITIZATION -->
+<!-- B6: PRIORITIZATION -->
   <div class="qblock" onclick="toggleQ(this)">
     <div class="qblock-header">
       <span class="qblock-num" style="color:var(--accent)">★ B6</span>
       <span class="qblock-q">"Tell me about a time you had to make a hard prioritization call — saying no to something important or cutting scope under pressure."</span>
       <div style="display:flex;gap:6px;align-items:center">
-        <span class="qblock-type" style="background:rgba(196,150,58,.15);color:var(--amber)">Needs excavation</span>
+        <span class="qblock-type" style="background:rgba(122,171,98,.15);color:var(--green)">Story ready</span>
         <span class="qblock-chev">▼</span>
       </div>
     </div>
     <div class="qblock-body">
       <div class="asection">
-        <div class="as-label">What makes a strong prioritization story</div>
-        <div class="as-body">The best ones have a real cost — someone important wanted something and you said no, or something partially built got cut, or you had to choose between two things that both mattered. A prioritization story where the trade-off was painless isn't credible. The signal Victoria wants: you made the call with data and conviction, you defended it when pushed back on, and you owned the consequence.</div>
+        <div class="as-label">Your anchor story — Webpage functional parity</div>
+        <div class="as-body"><strong>Cutting theme editor, mobile features, and page view tracking to make the Project X launch deadline.</strong> The constraint was existential: if you weren't ready when Express shipped, you simply wouldn't have been included. Ship now or don't exist. See S2 in Story Bank for full version.</div>
       </div>
       <div class="asection">
-        <div class="as-label">Thought-provoking prompts — let these surface the right memory</div>
-        <div class="steps">
-          <div class="step"><div class="step-n">→</div><div><div class="step-title">The stakeholder you disappointed</div><div class="step-body">Was there a stakeholder — a partner, a leader, a cross-functional team — who wanted something on your roadmap that you deprioritized or killed? What was the ask, what was your reason, and how did you handle the conversation?</div></div></div>
-          <div class="step"><div class="step-n">→</div><div><div class="step-title">The feature that got cut mid-build</div><div class="step-body">Was there ever a feature that was already in development — partially specced, partially built, or already designed — that you made the call to stop? What was the trigger and how did you communicate it to the team?</div></div></div>
-          <div class="step"><div class="step-n">→</div><div><div class="step-title">The reorg / charter change forced call</div><div class="step-body">When your charter changed in the reorg, did that force you to deprioritize something you'd been building toward? Was there a roadmap item you had to kill or defer that you believed in? How did you make that call and communicate it?</div></div></div>
-          <div class="step"><div class="step-n">→</div><div><div class="step-title">The competing team / resource conflict</div><div class="step-body">Was there a moment where another team wanted your engineering resources, or leadership wanted you to work on something else, and you had to defend your roadmap priorities? How did you make the case and what happened?</div></div></div>
-          <div class="step"><div class="step-n">→</div><div><div class="step-title">The Webpage EOL decision itself</div><div class="step-body">The decision to invest in Webpage was itself a prioritization call — it meant not working on something else with those resources. What were you explicitly trading off? Was there a competing initiative that didn't get the investment because Webpage did?</div></div></div>
+        <div class="as-label">90-second version</div>
+        <div class="answer">
+          <p>"To make the Project X launch deadline with four engineers, I cut real features — the theme editor, mobile versions of certain features, page view tracking. I called it functional parity.</p>
+          <p>The framing I want to be clear about: shipping imperfect wasn't a compromise — it was the only option. If we weren't ready when the rest of Express shipped, we simply wouldn't have been included in the build. There was no 'ship later.' There was ship now or don't exist.</p>
+          <p>What I cut was deliberate. The theme editor was a power feature for a small segment of users — not baseline value. Mobile versions could follow. Page tracking was useful but not necessary for launch. I ruthlessly kept what mattered for educators and students and dropped what could wait.</p>
+          <p>We shipped. The product survived. And by proving the value, we earned more investment — the team eventually grew from 4 to 7 engineers."</p>
         </div>
       </div>
       <div class="asection">
-        <div class="as-label">The frame to use once you find the story</div>
-        <div class="answer">
-          <p><strong>Setup:</strong> "I had [X request / Y competing priority / Z stakeholder] pushing for [something specific]."</p>
-          <p><strong>The call:</strong> "I decided [to deprioritize / cut / say no] because [specific reason — data, strategy, resource constraint]."</p>
-          <p><strong>The cost:</strong> "The consequence was [someone was unhappy / something didn't get built / a relationship got harder]."</p>
-          <p><strong>How I handled it:</strong> "I [communicated the reason directly / offered an alternative / set a future date to revisit]."</p>
-          <p><em>Close with: "The thing I've learned about prioritization is that the decision is rarely the hard part — communicating it in a way that maintains the relationship is. I try to make the trade-off visible rather than just announcing the decision."</em></p>
+        <div class="as-label">Secondary stories for B6 — if she probes for another example</div>
+        <div class="as-body">
+          <strong>Webpage templates (scrappy build):</strong> Hardcoded templates manually rather than building the self-serve submission infrastructure first. Shipped a quarter earlier, learned from real usage. Same instinct — shipping something real beats shipping nothing while you build the perfect system.<br><br>
+          <strong>Add-ons audit:</strong> Chose 35 from 50 potential add-ons based on systematic evaluation of privacy policies and education value. Every add-on left off was a deliberate call.<br><br>
+          <strong>Hz document model:</strong> Said no to live co-editing (the one feature you'd give up by staying on the custom model) after user research showed it wasn't a priority. Held that position for years under engineering pressure.
         </div>
       </div>
     </div>
   </div>
 
-  <!-- B7: USING DATA -->
+<!-- B7: USING DATA -->
   <div class="qblock" onclick="toggleQ(this)">
     <div class="qblock-header">
       <span class="qblock-num">B7</span>
@@ -1410,28 +1404,32 @@
       <span class="qblock-num">B8</span>
       <span class="qblock-q">"Tell me about a time you had to work with a difficult or resistant stakeholder. How did you handle it?"</span>
       <div style="display:flex;gap:6px;align-items:center">
-        <span class="qblock-type" style="background:rgba(196,150,58,.15);color:var(--amber)">Needs excavation</span>
+        <span class="qblock-type" style="background:rgba(122,171,98,.15);color:var(--green)">Story ready</span>
         <span class="qblock-chev">▼</span>
       </div>
     </div>
     <div class="qblock-body">
       <div class="asection">
-        <div class="as-label">What makes this different from B2</div>
-        <div class="as-body">B2 (influence without authority) is about driving alignment across a complex org. This question is more personal — a specific individual who was resistant, skeptical, or actively blocking. The signal: you can work with people who don't immediately agree with you without escalating, personalizing it, or avoiding the conflict.</div>
+        <div class="as-label">Your anchor story — Legal leadership on add-ons</div>
+        <div class="as-body"><strong>Legal leadership during the add-ons default-on push.</strong> Conservative by nature, made more cautious by a recent SURF audit. Their concern wasn't that specific add-ons were risky — it was uncertainty about third-party data practices. You removed the uncertainty by doing the analytical work yourself. See S6 in Story Bank for full version.</div>
       </div>
       <div class="asection">
-        <div class="as-label">Thought-provoking prompts</div>
-        <div class="steps">
-          <div class="step"><div class="step-n">→</div><div><div class="step-title">The skeptical executive</div><div class="step-body">Was there a specific VP or senior leader who was skeptical of your Webpage bet or another initiative? What was their specific objection and how did you bring them around — or did you find a way to move forward without them?</div></div></div>
-          <div class="step"><div class="step-n">→</div><div><div class="step-title">The resistant partner</div><div class="step-body">In the partnerships work — was there a specific edtech partner or internal Adobe stakeholder who was resistant to how you wanted to structure the integration? What was the source of the friction and how did you resolve it?</div></div></div>
-          <div class="step"><div class="step-n">→</div><div><div class="step-title">The cross-functional blocker</div><div class="step-body">On any project — was there a person in legal, engineering, design, or another team who was blocking progress? Not a system or a process — a specific person with a specific concern. How did you understand their perspective and what did you do?</div></div></div>
-          <div class="step"><div class="step-n">→</div><div><div class="step-title">The Project X / migration story</div><div class="step-body">In the Spark → Express migration, with 10+ teams involved — was there a specific team or individual who was the hardest to bring along? What made them resistant and what specifically changed?</div></div></div>
+        <div class="as-label">90-second version</div>
+        <div class="answer">
+          <p>"When I was trying to get 35 add-ons default on for K12, the hardest stakeholder to move was legal leadership. They'd just gone through a SURF audit and were in a conservative posture about third-party data practices. Their concern wasn't that specific add-ons were known to be risky — it was that they didn't know enough and didn't like the uncertainty.</p>
+          <p>I removed the uncertainty. I spent a few days auditing the top 50 add-ons myself — reading privacy policies, categorizing them by risk level, and building a structured case: here are the ones most valuable for education, here are the ones with existing privacy policies, here are the ones where we could get them. I gave legal something specific to react to rather than an abstract ask.</p>
+          <p>I also worked with the admin console PM to build in a safety valve — admins could turn add-ons off for their institution if needed. That gave legal a way to approve the default-on model without feeling like they'd lost control.</p>
+          <p>35 add-ons live today. Education users who interact with add-ons have 147% higher M1RR than those who don't."</p>
         </div>
+      </div>
+      <div class="asection">
+        <div class="as-label">Secondary angle — Firefly VP on optional login</div>
+        <div class="as-body">Firefly VP wasn't on board with optional login — concerns about model safety for K12 and abuse risk. You addressed both directly (partner enforces 13+, users logged into Magic School, terms acceptance), then facilitated a three-way conversation with Education VP and Express Embed VP where they made the case together. Both VPs formally assumed the risk. See S1 in Story Bank.</div>
       </div>
     </div>
   </div>
 
-  <!-- B9: AMBIGUITY -->
+<!-- B9: AMBIGUITY -->
   <div class="qblock" onclick="toggleQ(this)">
     <div class="qblock-header">
       <span class="qblock-num">B9</span>
@@ -1443,23 +1441,27 @@
     </div>
     <div class="qblock-body">
       <div class="asection">
-        <div class="as-label">Your two angles</div>
-        <div class="as-body"><strong>Primary: Express Home charter (March 2026)</strong> — inherited a new mandate to define personalization strategy and agentic product vision from scratch. No defined roadmap, high ambiguity, millions of MAU at stake. Most current and most relevant to Frame.io's open-ended charter.<br><br>
-        <strong>Secondary: Webpage rescue</strong> — no template for how to save a near-EOL product. Had to define what success looked like before you could build toward it.</div>
+        <div class="as-label">Your anchor story — Project X education bridge</div>
+        <div class="as-body"><strong>Being the education bridge for Project X — the Spark to Express replatforming.</strong> No defined role, constantly shifting timelines, constantly shifting product definition. You had to figure out what "education PM for this project" meant while the project itself was in motion. See S5 in Story Bank for full version.</div>
       </div>
       <div class="asection">
-        <div class="as-label">The shape for Express Home</div>
+        <div class="as-label">90-second version</div>
         <div class="answer">
-          <p><strong>Situation:</strong> "In March I inherited Express Home — the primary surface for millions of education MAU — with a mandate to define the personalization strategy and agentic product vision from scratch. No roadmap handed to me, no predecessor to debrief with."</p>
-          <p><strong>How I approached it:</strong> "My first move in ambiguous charters is always the same: talk to the people whose judgment matters most before I form opinions. I spent the first few weeks in user research, in the data, and talking to the engineers and designers who knew the surface best. I wanted to understand the current state clearly before forming a point of view on the future state."</p>
-          <p><strong>What I landed on:</strong> "The core question I've been designing around is what 'personalization' actually means for an education creative tool — which turns out to be a harder question than it sounds. It's not just serving content based on past behavior. It's understanding where a student is in their creative development and surfacing the right challenge at the right moment."</p>
-          <p><em>Why this matters for Frame.io: "This role is described as an open-ended charter to own a major strategic area. That's exactly the situation I'm in right now on Express Home. I'm not intimidated by it — it's where I do my best work."</em></p>
+          <p>"My first real assignment was being the bridge between Express and education users for Project X — the full replatforming. No defined role, constantly shifting timelines, constantly shifting product scope.</p>
+          <p>The way I created structure: I separated what I could control from what I couldn't. Express's timeline wasn't mine to control. What was mine was what we delivered on education's side. When Express timelines slipped, we didn't.</p>
+          <p>The thing I held constant was the goal: an intuitive experience that delivered baseline value for educators and students. Every time the definition shifted, I filtered it through that lens.</p>
+          <p>The hardest fight was timing. I pushed constantly for the migration to happen during an off-period — not mid-school year when teachers had active projects. My argument was always the same: the MAU numbers, the loyalty of this user base, and Canva sitting right there as an alternative. We launched early August 2023, right before the school year. It worked.</p>
+          <p>What I learned: the goal for end users is usually the clearest fixed point you have. Anchor to that and you can stay oriented even when everything else is moving."</p>
         </div>
+      </div>
+      <div class="asection">
+        <div class="as-label">Secondary angle — Webpage rescue</div>
+        <div class="as-body">No onboarding, new to PM, new to education — had to define what "save Webpage" even meant before I could do it. If Victoria has already heard Webpage for B1 or B6, signal the pivot: "Same project, different dimension — less about the bet and more about how I created direction when nothing was defined."</div>
       </div>
     </div>
   </div>
 
-  <!-- B10: SHIPPING SOMETHING -->
+<!-- B10: SHIPPING SOMETHING -->
   <div class="qblock" onclick="toggleQ(this)">
     <div class="qblock-header">
       <span class="qblock-num">B10</span>
@@ -1498,31 +1500,31 @@
       <span class="qblock-num">B11</span>
       <span class="qblock-q">"Tell me about a time you had to make a product decision that required understanding a technical constraint. How did you get there?"</span>
       <div style="display:flex;gap:6px;align-items:center">
-        <span class="qblock-type" style="background:rgba(122,171,98,.15);color:var(--green)">Story ready</span>
+        <span class="qblock-type" style="background:rgba(122,171,98,.15);color:var(--green)">Story ready — 2 anchors</span>
         <span class="qblock-chev">▼</span>
       </div>
     </div>
     <div class="qblock-body">
       <div class="asection">
-        <div class="as-label">Your anchor story</div>
-        <div class="as-body"><strong>Optional login framework / embed SDK authorization model.</strong> This is both an influence story AND a technical depth story. The product decision — how to structure the authorization model — required understanding OAuth flows, what Adobe's IMS could and couldn't support, and what the security implications of different scope levels were. You had to get technically literate enough to make product decisions with real security implications.</div>
+        <div class="as-label">Anchor A — Optional login / SDK authorization model</div>
+        <div class="as-body"><strong>Designing the authorization architecture for optional login.</strong> Needed to understand OAuth 2.0 device authorization flows well enough to define a product that had real security implications — access scope, trust model between Adobe/partner/end user, what happens if a partner over-provisions access. You didn't implement it — engineering did. But you couldn't define the requirements without understanding the constraints. See S1 in Story Bank.</div>
       </div>
       <div class="asection">
-        <div class="as-label">Supplementary angle — the embed SDK as partner</div>
-        <div class="as-body">Your experience as a partner integrating against third-party SDKs gives you a second technical depth story: a time you were on the receiving end of a technical decision and had to understand enough about the API architecture to advocate for a change or work around a constraint. That's technical fluency from a different angle — and one Victoria will respect because it shows you've felt the developer experience firsthand.</div>
+        <div class="as-label">Anchor B — Hz document model debate</div>
+        <div class="as-body"><strong>Years-long technical debate about whether Webpage should migrate to the Horizon document model.</strong> Engineering kept pushing — less maintenance, more for free. You held the position for years with specific technical reasons: Hz doc model not built for HTML output, WYSIWYG font constraints, canvas structure limitations, responsiveness issues. Multiple formal evaluations with senior architects. User research resolved the live co-editing question. Strategically vindicated when AI and HTML became the priority. See S7 in Story Bank.</div>
       </div>
       <div class="asection">
-        <div class="as-label">The shape — be precise about what you understood vs. what engineering owned</div>
-        <div class="answer">
-          <p>"The optional login framework required me to understand enough about OAuth 2.0 device authorization flows to make product decisions with real security implications. I needed to know: what data does Adobe's IMS expose in this flow, what scope levels are available, and what the security model looks like if a partner over-provisions access."</p>
-          <p>"I didn't implement it — engineering did. But I couldn't define the product requirements without understanding the technical constraints first. I spent time with the engineering lead going through the OAuth spec together, not to become an engineer, but to understand the decision space well enough to make the right product calls."</p>
-          <p><em>"The thing I took from that: the best PM-eng relationships aren't about the PM understanding everything — they're about the PM understanding enough to ask the right questions. 'What are the security implications if we allow scope X?' is a product question that requires technical context to ask well."</em></p>
-        </div>
+        <div class="as-label">Which anchor to use when</div>
+        <div class="as-body">Use <strong>optional login</strong> if she hasn't heard it yet — it's a one-time decision under deadline pressure, authorization architecture.<br>Use <strong>Hz doc model</strong> if optional login has already come up for B2 — it's sustained technical judgment over years, formal evaluation process, user-research-informed. Together they show two completely different types of technical depth.</div>
+      </div>
+      <div class="asection">
+        <div class="as-label">Secondary — PDF export</div>
+        <div class="as-body">Evaluated three PDF conversion options alongside engineering, pushed back on Acrobat API, was convinced by a specific technical argument (pageless-to-paged), then got into the accessibility tagging comparison yourself. Shows you work at the technical detail level with engineering, not just receive recommendations. See S4 in Story Bank.</div>
       </div>
     </div>
   </div>
 
-  <!-- B12: LEARNING DOMAIN -->
+<!-- B12: LEARNING DOMAIN -->
   <div class="qblock" onclick="toggleQ(this)">
     <div class="qblock-header">
       <span class="qblock-num">B12</span>
@@ -1793,6 +1795,8 @@
           <p><strong>The 3 integrations I'd prioritize:</strong> A ShotGrid/Autodesk Flow connector (Frame.io review status synced back to the production pipeline — enormous value for VFX and animation studios), a MAM connector (approved assets in Frame.io automatically transferred to enterprise DAM systems like AEM or Iconik), and a QC automation integration (a third-party technical QC tool like Telestream surfaced as a Custom Action inside Frame.io).</p>
           <p><strong>Why these three:</strong> Each solves a real pain point that professional users have voiced, each demonstrates a different API capability (webhooks, asset transfer, Custom Actions), and each makes Frame.io stickier in the enterprise workflows that drive high ACV. The ShotGrid connector specifically is a hat tip to the workflow Victoria knows best — which makes it a credible first integration to build around.</p>
           <p><em>Success metric: number of enterprise accounts using the V4 API in production workflows at 6 months. Secondary metric: developer satisfaction score on the API documentation and DX.</em></p>
+          <p><strong>One more angle:</strong> Frame.io already has a live MCP server — any MCP-compatible AI agent can access Frame.io's full workflow capabilities through a standard interface today. The 6-month platform bet includes actively building on that: reference agentic workflow templates that show what high-value Frame.io workflows look like for AI agents, so the MCP server becomes something developers discover and build on rather than just something that exists. Publishing the server is table stakes. Actively building the ecosystem on top of it is the strategy.</p>
+          <p><strong>One more angle worth mentioning:</strong> Frame.io already has a live MCP server — which means any MCP-compatible AI agent can already access Frame.io's full workflow capabilities through a standard interface. The 6-month bet on the developer platform includes actively building on that: reference agentic workflow templates that define what high-value Frame.io workflows look like for AI agents, so the MCP server becomes a platform developers discover and build on rather than just a server that exists.</p>
         </div>
       </div>
       <div class="asection">
